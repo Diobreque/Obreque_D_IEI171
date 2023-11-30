@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="alert alert-info display-1 text-center">Agregar un Proyecto</div>
+
+    <form method="POST">
+        <table class="table">
+            {{form.as_table}}
+            {% csrf_token %}
+
+            <tr>
+                <td colspan="2">
+                    <a href="/" class="btn btn-danger">VOLVER</a>   
+                    <input type="submit" class="btn btn-success float-end" value="GUARDAR">
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
