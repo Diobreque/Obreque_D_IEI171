@@ -24,6 +24,7 @@
                         <th>Correo Electronico</th>
                         <th>sexo</th>
                         <th>estado</th>
+                        <th>observacion</th>
                         <th>-</th>
                     </tr>
                 </thead>
@@ -35,8 +36,9 @@
                         <td>{{ socio.anio_nacimiento }}</td>
                         <td>{{ socio.telefono }}</td>
                         <td>{{ socio.correo_electronico }}</td>
-                        <td>{{ socio.sexo }}</td>
-                        <td>{{ socio.estado }}</td>
+                        <td>{{ socio.get_sexo_display }}</td>
+                        <td>{{ socio.get_estado_display }}</td>
+                        <td>{{ socio.observacion }}</td>
                     </tr>
                     {% endfor %}
                 </tbody>

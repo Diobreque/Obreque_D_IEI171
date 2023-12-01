@@ -20,5 +20,8 @@ class Socio(models.Model):
         null=False, blank=False,
         choices=selector_estado
     )
+    observacion = models.CharField(max_length=250)
     def __str__(self):
-        return self.nombre_socio
+        sexo_display = self.get_sexo_display()
+        estado_display = self.get_estado_display()
+        return f"{self.nombre_socio} - Sexo: {sexo_display}, Estado: {estado_display}"

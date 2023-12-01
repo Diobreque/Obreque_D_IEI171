@@ -11,12 +11,13 @@ def listadoSocios(request):
 
 def agregarSocios(request):
     form = FormSocios()
+    form_guardado = False
 
-    if (request.method == 'POST'):
+    if request.method == 'POST':
         form = FormSocios(request.POST)
-        if (form.is_valid()):
+        if form.is_valid():
             form.save()
-        return index(request)
-  
-    data = {'form': form}
-    return render (request, 'agregar.html', data)
+            form_guardado = True
+            form = FormSocios()
+    data = {'form': form, 'form_guardado': form_guardado}
+    return render(request, 'agregar.html', data)
