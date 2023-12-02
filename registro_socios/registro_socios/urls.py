@@ -21,5 +21,7 @@ from socios_app import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('socios/', views.listadoSocios),
-    path('agregar/', views.agregarSocios)
+    path('agregar/', views.agregarSocios),
+    path('eliminar/<int:soc_id>', views.eliminarSocios),
+    path('editar/<int:soc_id>', views.editarSocios)
 ]

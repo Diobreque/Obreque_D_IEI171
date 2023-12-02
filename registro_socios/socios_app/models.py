@@ -10,7 +10,7 @@ class Socio(models.Model):
     nombre_socio = models.CharField(max_length=80)
     fecha_incorporacion = models.DateField()
     anio_nacimiento = models.DateField()
-    telefono = models.IntegerField()
+    telefono = models.CharField(max_length=9)
     correo_electronico = models.EmailField()
     sexo = models.IntegerField(
         null=False, blank=False,
@@ -20,7 +20,7 @@ class Socio(models.Model):
         null=False, blank=False,
         choices=selector_estado
     )
-    observacion = models.CharField(max_length=250)
+    observacion = models.TextField(blank=True, null=True)
     def __str__(self):
         sexo_display = self.get_sexo_display()
         estado_display = self.get_estado_display()
