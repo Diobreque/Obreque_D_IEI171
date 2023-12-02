@@ -5,8 +5,8 @@ from socios_app.models import selector_estado, selector_sexo
 
 class FormSocios(forms.ModelForm):
     nombre_socio = forms.CharField()
-    fecha_incorporacion = forms.CharField()
-    anio_nacimiento = forms.CharField()
+    fecha_incorporacion = forms.DateField(input_formats=['%Y-%m-%d'])
+    anio_nacimiento = forms.DateField(input_formats=['%Y-%m-%d'])
     telefono = forms.CharField()
     correo_electronico = forms.CharField()
     sexo = forms.ChoiceField(choices=selector_sexo)
@@ -14,8 +14,8 @@ class FormSocios(forms.ModelForm):
     observacion = forms.CharField(required=False)
 
     nombre_socio.widget.attrs['class'] = 'form-control'
-    fecha_incorporacion.widget.attrs['class'] = 'form-control'
-    anio_nacimiento.widget.attrs['class'] = 'form-control'
+    fecha_incorporacion = forms.DateField(widget=forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}), input_formats=['%Y-%m-%d'])
+    anio_nacimiento = forms.DateField(widget=forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}), input_formats=['%Y-%m-%d'])
     telefono.widget.attrs['class'] = 'form-control'
     correo_electronico.widget.attrs['class'] = 'form-control'
     sexo.widget.attrs['class'] = 'form-select'
