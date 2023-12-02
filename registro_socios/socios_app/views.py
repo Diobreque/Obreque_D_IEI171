@@ -5,6 +5,20 @@ from socios_app.models import Socio
 from socios_app.forms import FormSocios
 # Create your views here.
 
+
+def index(request):
+    data = {
+    "title": "Usuario",
+    "titulo": "Usuario",
+    "nombre": "Diego Obreque Molina",
+    "email": "diego.obreque05@inacapmail.cl",
+    "carrera": "Analista Programador",
+    "sede": "Temuco",
+    "foto1": "user.jpeg"
+    }
+
+    return render(request, 'index.html', data)
+
 def listadoSocios(request):
     socios = Socio.objects.all()
     data = {'socios' : socios}

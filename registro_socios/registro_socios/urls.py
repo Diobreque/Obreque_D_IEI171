@@ -23,5 +23,6 @@ urlpatterns = [
     path('socios/', views.listadoSocios),
     path('agregar/', views.agregarSocios),
     path('eliminar/<int:soc_id>', views.eliminarSocios),
-    path('editar/<int:soc_id>', views.editarSocios)
+    path('editar/<int:soc_id>', views.editarSocios),
+    path('', views.index)
 ]
