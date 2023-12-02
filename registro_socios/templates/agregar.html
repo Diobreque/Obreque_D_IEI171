@@ -6,11 +6,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>body {background-color: #fbf6ec;}</style>
-    <title>Agregar Socio</title>
+    <title>{{ title }}</title>
 </head>
 <body>
     <div class="container mt-5">
-        <div class="alert alert-info display-1 text-center">Agregar Socio</div>
+        <div class="alert alert-info display-1 text-center">{{ accion }}</div>
 
         <form method="POST">
             {% csrf_token %}

@@ -26,23 +26,22 @@ def listadoSocios(request):
 
 
 def agregarSocios(request):
+    data = {"title": "Agregar", "accion": "Agregar Socio"}
+    
     if request.method == 'POST':
         form = FormSocios(request.POST)
         if form.is_valid():
             form.save()
             return redirect('/agregar')
         else:
-            return render(request, 'agregar.html', {'form': form})
+            data['form'] = form
+            return render(request, 'agregar.html', data)
     else:
         form = FormSocios()
-    return render(request, 'agregar.html', {'form': form})
+    
+    data['form'] = form
+    return render(request, 'agregar.html', data)
 
-
-
-def eliminarSocios(request, soc_id):
-    socio = Socio.objects.get(id_socio = soc_id)
-    socio.delete()
-    return redirect('/socios')
 
 def editarSocios(request, soc_id):
     socio = Socio.objects.get(id_socio = soc_id)
@@ -53,5 +52,11 @@ def editarSocios(request, soc_id):
         if (form.is_valid()):
             form.save()
         return redirect('/socios')
-    data = {'form': form}
+    data = {'form': form, "title" : "Editar", "accion" : "Editar Socio"}
     return render (request, 'agregar.html', data)
+
+
+def eliminarSocios(request, soc_id):
+    socio = Socio.objects.get(id_socio = soc_id)
+    socio.delete()
+    return redirect('/socios')
