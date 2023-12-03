@@ -46,13 +46,16 @@ def agregarSocios(request):
 def editarSocios(request, soc_id):
     socio = Socio.objects.get(id_socio = soc_id)
     form = FormSocios(instance=socio)
+    data = {'form': form, "title" : "Editar", "accion" : "Editar Socio"}
 
     if (request.method == "POST"):
         form = FormSocios(request.POST, instance=socio)
         if (form.is_valid()):
             form.save()
-        return redirect('/socios')
-    data = {'form': form, "title" : "Editar", "accion" : "Editar Socio"}
+            return redirect('/socios')
+        else:
+            data['form'] = form
+            return render(request, 'agregar.html', data)
     return render (request, 'agregar.html', data)
 
 

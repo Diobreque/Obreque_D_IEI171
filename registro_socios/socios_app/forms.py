@@ -7,7 +7,7 @@ class FormSocios(forms.ModelForm):
     nombre_socio = forms.CharField()
     fecha_incorporacion = forms.DateField(input_formats=['%Y-%m-%d'])
     anio_nacimiento = forms.DateField(input_formats=['%Y-%m-%d'])
-    telefono = forms.CharField()
+    telefono = forms.CharField(min_length=9, max_length=9)
     correo_electronico = forms.CharField()
     sexo = forms.ChoiceField(choices=selector_sexo)
     estado = forms.ChoiceField(choices=selector_estado)
